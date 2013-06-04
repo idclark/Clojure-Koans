@@ -1,21 +1,29 @@
 (defn is-even? [n]
   (if (= n 0)
-    __
-    (___ (is-even? (dec n)))))
+    true
+    (not (is-even? (dec n)))))
 
 (defn is-even-bigint? [n]
   (loop [n   n
          acc true]
     (if (= n 0)
-      __
+      acc 
       (recur (dec n) (not acc)))))
 
 (defn recursive-reverse [coll]
-  __)
+  (loop [coll coll             ;define collection
+         acc ()]               ; start with empy seq (or vector)
+    (if (seq coll)
+   (recur (rest coll) (conj acc (first coll))) ;bind last item to empty, until we get to the head
+   acc)))
 
 (defn factorial [n]
-  __)
-
+  (loop [n n               ; define top
+         acc 1]            ; counter
+    (if (zero? n)
+      acc                  ; when at the bottom, multiply by 1
+      (recur (dec n)(* acc n))))) ;start at 1 and multiply back to the top
+                                  ;n=5, 1*2*3*4*5
 (meditations
   "Recursion ends with a base case"
   (= true (is-even? 0))
