@@ -13,12 +13,11 @@
           "then comes marriage, "
           "then comes Clojure with the baby carriage")
      ((fn [[a b c]]
-        (format (str
-                 "Fist comes %s, "
-                 "then comes %s, "
-                 "then comes %s with the baby carriage")
-                a b c))
-      ["love" "marriage" "Clojure"]))
+       (format (str "First comes %s, "
+                    "then comes %s, "
+                    "then comes %s with the baby carriage")
+                                 a b c)
+      ["love" "marriage" "Clojure"])))
 
   "Or in let expressions"
   (= "Rich Hickey aka The Clojurer aka Go Time aka Macro Killah"
