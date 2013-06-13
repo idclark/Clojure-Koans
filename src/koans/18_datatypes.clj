@@ -15,9 +15,11 @@
 (deftype Razzie [category]
   Award
   (present [this recipient]
-    (print (str " "
-                (:category this) " Oscar, "
-                recipient "!"))))
+    (print (str "You're really the "
+                (.category this)
+                ", "
+                recipient
+                "... sorry."))))
 
 (meditations
   "Holding records is meaningful only when the record is worthy of you"
@@ -33,7 +35,7 @@
   (= nil (:prize (Pulitzer. "poetry")))
 
   "Further study reveals why"
-  (= (true false)
+  (= [true false]
      (map map? [(Nobel. "chemistry")
                 (Pulitzer. "music")]))
 
@@ -44,3 +46,4 @@
   "Surely we can implement our own by now"
   (= "You're really the Worst Picture, Final Destination 5... sorry."
      (with-out-str (present (Razzie. "Worst Picture") "Final Destination 5")))
+)
